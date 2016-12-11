@@ -1,0 +1,19 @@
+Dependencies for Project 'Stufe1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x5807EA7C)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I "D:\Master-Studium\Batteriemanagment\Keil Projekt\Stufe 1\RTE"-I D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DADuCM360-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x569E5ABA)
+I (D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include\ADuCM360.H)(0x53887D96)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h)(0x5626197C)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569E5ABA)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x562605C0)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x562605C0)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x562605C0)
+I (D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include\system_ADUCM360.h)(0x51C7F694)
+F (RTE\Device\ADuCM360\startup_ADuCM360.s)(0x51C7F5FE)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I "D:\Master-Studium\Batteriemanagment\Keil Projekt\Stufe 1\RTE"-I D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include--pd "__UVISION_VERSION SETA 518" --pd "_RTE_ SETA 1" --pd "ADuCM360 SETA 1"--list .\listings\startup_aducm360.lst --xref -o .\objects\startup_aducm360.o --depend .\objects\startup_aducm360.d)
+F (RTE\Device\ADuCM360\system_ADuCM360.c)(0x51C7F5FE)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I "D:\Master-Studium\Batteriemanagment\Keil Projekt\Stufe 1\RTE"-I D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include-D__UVISION_VERSION="518" -D_RTE_ -DADuCM360-o .\objects\system_aducm360.o --omf_browse .\objects\system_aducm360.crf --depend .\objects\system_aducm360.d)
+I (D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include\ADuCM360.h)(0x53887D96)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h)(0x5626197C)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569E5ABA)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x562605C0)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x562605C0)
+I (D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x562605C0)
+I (D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Device\Include\system_ADUCM360.h)(0x51C7F694)
