@@ -17,10 +17,11 @@ int main (void) {
 	SystemCoreClockUpdate();
 	
 	//Initialisierung
+	pADI_ADC0->MDE = ADCMDE_ADCMD_IDLE;   //ADC0 in Idle mode um Einstellungen zu bearbeiten
 	pADI_ADC0->CON |= ADCCON_ADCEN;	      //Aktiviere ADC0
 	pADI_ADC0->CON |= ADCCON_ADCCP_AIN0;  //Positiver Kanal : AIN0
 	pADI_ADC0->CON |= ADCCON_ADCCN_AIN5;  //Negativer Kanal : AIN5
-	pADI_ADC0->MDE |= ADCMDE_ADCMD_CONT;  //Kontinuierliche Messung über ADC
+	pADI_ADC0->MDE = ADCMDE_ADCMD_CONT;   //Kontinuierliche Messung über ADC
 	
 	while(1){
   	analog_value = pADI_ADC0->DAT;
