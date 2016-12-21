@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 Software zur Anbindung des Shunts zur Messung der Ströme
 Autor: Maximilian Serfas
