@@ -1,6 +1,6 @@
 #include <ADuCM360.H>
 
-int spiInit (void){
+void spiInit (void){
 
 		pADI_SPI0->SPIDIV |= SPIDIV_DIV_MSK;	
 
@@ -10,7 +10,7 @@ int spiInit (void){
 	
 }
 
-int gpioInit(void){
+void gpioInit(void){
 	
 /*--------SPI-------------------------------------*/
 	
@@ -25,9 +25,18 @@ int gpioInit(void){
 		pADI_GP1->GPOEN |= GP1OEN_OEN6;						//MOSI -> Output
 		pADI_GP1->GPOEN |= GP1OEN_OEN7;						//CS   -> Output
 	
-}
+/*--------CAN-Transceiver--------------------------*/	
+	  pADI_GP0->GPCON |= GPOEN_OEN1_IN;         //UART Serial Input 
+	  pADI_GP0->GPCON |= GPOEN_OEN2_OUT;				//UART Serial Output
+	  pADI_GP0->GPCON |= GP0CON_CON1_UARTRXD;		//P0.1 Funktion UART RX
+		pADI_GP0->GPCON |= GP0CON_CON2_UARTTXD;   //P0.2 Funktion UART TX
+	  pADI_GP1->GPCON |= GPOEN_OEN0_OUT;				//P1.0 STBN -> Output
+	  pADI_GP1->GPCON |= GPOEN_OEN2_IN;					//P1.2 ERRN -> Input
+		pADI_GP1->GPCON |= GPOEN_OEN4_OUT;				//P1.4 EN -> Output
+}	
 
-int adc0Init(void){
+/*---------ADC -> SHUNT ----------------------------*/
+void adc0Init(void){
 
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_IDLE;    		//Idle-Mode zur Kalibrierung
 	pADI_ADC0->CON |= ADCCON_ADCEN;	      			//Aktiviere ADC0
@@ -37,8 +46,19 @@ int adc0Init(void){
 	pADI_ADC0->MDE = ADCMDE_ADCMD_CONT;    			//Kontinuierliche Messung über
 }
 
-int uartInit(void){
+/*--------ADC -> Spannungsmessung -------------------*/
+void adc1Init(void){
+}
 
+/*--------ADC -> Thermoelement ----------------------*/
+void adc2Init(void){
+}
+
+
+void uartInit(void){
+
+	pADI_UART->COMDIV |= COMLCR_WLS_8BITS;				//8-Bit Wortlänge
+	
 	
 	
 }
