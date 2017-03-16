@@ -1,6 +1,6 @@
 #include <ADuCM360.H>
 
-int spiInit (void){
+void spiInit (void){
 
 		pADI_SPI0->SPIDIV |= SPIDIV_DIV_MSK;	
 
@@ -10,7 +10,7 @@ int spiInit (void){
 	
 }
 
-int gpioInit(void){
+void gpioInit(void){
 	
 /*--------SPI-------------------------------------*/
 	
@@ -27,7 +27,7 @@ int gpioInit(void){
 	
 }
 
-int adc0Init(void){
+void adc0Init(void){
 
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_IDLE;    		//Idle-Mode zur Kalibrierung
 	pADI_ADC0->CON |= ADCCON_ADCEN;	      			//Aktiviere ADC0
@@ -37,7 +37,7 @@ int adc0Init(void){
 	pADI_ADC0->MDE = ADCMDE_ADCMD_CONT;    			//Kontinuierliche Messung über
 }
 
-int uartInit(void){
+void uartInit(void){
 
 	
 	
