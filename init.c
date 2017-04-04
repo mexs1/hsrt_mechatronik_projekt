@@ -35,8 +35,6 @@ void gpioInit(void){
 		pADI_GP1->GPCON |= GPOEN_OEN4_OUT;				//P1.4 EN -> Output
 }	
 
-/*---------ADC -> SHUNT ----------------------------*/
-void adc0Init(void){
 
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_IDLE;    		//Idle-Mode zur Kalibrierung
 	pADI_ADC0->CON |= ADCCON_ADCEN;	      			//Aktiviere ADC0
@@ -44,10 +42,6 @@ void adc0Init(void){
 	pADI_ADC0->CON |= ADCCON_ADCCN_AIN5;  			//Negativer Kanal : AIN5
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_INTOCAL; 		//Zero-Scale-Calibration
 	pADI_ADC0->MDE = ADCMDE_ADCMD_CONT;    			//Kontinuierliche Messung über
-}
-
-/*--------ADC -> Spannungsmessung -------------------*/
-void adc1Init(void){
 }
 
 /*--------ADC -> Thermoelement ----------------------*/
