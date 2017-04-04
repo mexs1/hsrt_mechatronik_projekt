@@ -35,7 +35,7 @@ void gpioInit(void){
 		pADI_GP1->GPCON |= GPOEN_OEN4_OUT;				//P1.4 EN -> Output
 }	
 
-
+void adc1Init(void){
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_IDLE;    		//Idle-Mode zur Kalibrierung
 	pADI_ADC0->CON |= ADCCON_ADCEN;	      			//Aktiviere ADC0
 	pADI_ADC0->CON |= ADCCON_ADCCP_AIN0;  			//Positiver Kanal : AIN0
