@@ -405,6 +405,21 @@
               <FileType>1</FileType>
               <FilePath>.\can.c</FilePath>
             </File>
+            <File>
+              <FileName>mcp2515.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mcp2515.c</FilePath>
+            </File>
+            <File>
+              <FileName>mcp2515.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mcp2515.h</FilePath>
+            </File>
+            <File>
+              <FileName>mcp2515_defs.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mcp2515_defs.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

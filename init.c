@@ -1,6 +1,8 @@
 #include <ADuCM360.H>
 
 void spiInit (void){
+	
+	//SD
 
 		pADI_SPI0->SPIDIV |= SPIDIV_DIV_MSK;	
 
@@ -8,22 +10,40 @@ void spiInit (void){
 	  pADI_SPI0->SPICON |= SPICON_LSB_EN;
 		pADI_SPI0->SPICON |= SPICON_ENABLE_EN;
 	
+	//Can-Controller
+		pADI_SPI1->SPICON |= SPICON_CPOL_LOW;
+	  pADI_SPI1->SPICON |= SPICON_CPHA_SAMPLETRAILING;
+	  pADI_SPI1->SPICON |= SPICON_MASEN_EN;
+	
+	  pADI_SPI1->SPICON |= SPICON_ENABLE_EN;
+	  
+	
+	  
+	
 }
 
 void gpioInit(void){
 	
 /*--------SPI-------------------------------------*/
 	
-	//Multiplexen der SPI0-Pins
+	//Multiplexen der SPI1-Pins (Can-Controller)
 	  pADI_GP1->GPCON |= GP1CON_CON4_SPI0MISO;
 		pADI_GP1->GPCON |= GP1CON_CON5_SPI0SCLK;
 	  pADI_GP1->GPCON |= GP1CON_CON6_SPI0MOSI;
 	  pADI_GP1->GPCON |= GP1CON_CON7_SPI0CS;    //Kann auch alternativ normaler GPIO Output sein
+	
+	//Multiplexen der SPI0-Pins (SD)
+		pADI_GP0->GPCON |= GP0CON_CON0_SPI1MISO;
+	  pADI_GP0->GPCON |= GP0CON_CON1_SPI1SCLK;
+	  pADI_GP0->GPCON |= GP0CON_CON2_SPI1MOSI;
+	  pADI_GP0->GPCON |= GP0CON_CON3_SPI1CS0;   //Kann auch alternativ normaler GPIO Output sein
 
 /*--------GPIO-------------------------------------*/
 	
-		pADI_GP1->GPOEN |= GP1OEN_OEN6;						//MOSI -> Output
-		pADI_GP1->GPOEN |= GP1OEN_OEN7;						//CS   -> Output
+		pADI_GP1->GPOEN |= GP1OEN_OEN6_OUT;						//MOSI1 -> Output
+		pADI_GP1->GPOEN |= GP1OEN_OEN7_OUT;						//CS1  -> Output
+		pADI_GP0->GPOEN |= GP0OEN_OEN2_OUT;						//MOSI0 -> Output
+	  pADI_GP0->GPOEN |= GP0OEN_OEN3_OUT;						//CS0 -> Output
 	
 /*--------CAN-Transceiver--------------------------*/	
 	  pADI_GP0->GPCON |= GPOEN_OEN1_IN;         //UART Serial Input 
