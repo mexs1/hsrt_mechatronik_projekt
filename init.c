@@ -49,12 +49,4 @@ void adc2Init(void){
 }
 
 
-void uartInit(void){
-
-	pADI_UART->COMDIV |= COMLCR_WLS_8BITS;				//8-Bit Wortlänge
-	
-	
-	
-}
-
 //TO DO : Clock Inits

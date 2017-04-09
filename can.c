@@ -4,8 +4,14 @@ mit dem CAN-Transceiver benötigt werden
 
 */
 
-void uartWrite(){
+void spiWrite(){
 }
 
-void uartRead(){
+void spiRead(){
+}
+
+void writeCanAdress(){
+}
+
+void writeCanData(){
 }
