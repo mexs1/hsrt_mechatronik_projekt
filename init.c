@@ -2,7 +2,7 @@
 
 void spiInit (void){
 	
-	//SD
+	//SD   TO DO..............
 
 		pADI_SPI0->SPIDIV |= SPIDIV_DIV_MSK;	
 
@@ -11,15 +11,15 @@ void spiInit (void){
 		pADI_SPI0->SPICON |= SPICON_ENABLE_EN;
 	
 	//Can-Controller
-		pADI_SPI1->SPICON |= SPICON_CPOL_LOW;
-	  pADI_SPI1->SPICON |= SPICON_CPHA_SAMPLETRAILING;
-	  pADI_SPI1->SPICON |= SPICON_MASEN_EN;
+		pADI_CLKCTL->CLKCON1 |= CLKCON1_SPI1CD_DIV2;			//Clock is set to UCLK/2 = 8MHz. Can-Controller kann bis zu 10 MHz unterstützen
+	  pADI_SPI1->SPIDIV |= SPIDIV_DIV_MSK;
+		pADI_SPI1->SPICON |= SPICON_CPOL_LOW;							//Clock Polarity Low
+	  pADI_SPI1->SPICON |= SPICON_CPHA_SAMPLETRAILING;	//Clock Phase -> falling edge of SCK
+	  pADI_SPI1->SPICON |= SPICON_MASEN_EN;							//Enable Master Operation
+	  pADI_SPI1->SPICON |= SPICON_LSB_DIS;							//MSB first
 	
-	  pADI_SPI1->SPICON |= SPICON_ENABLE_EN;
+	  pADI_SPI1->SPICON |= SPICON_ENABLE_EN;						//Enable SPI1
 	  
-	
-	  
-	
 }
 
 void gpioInit(void){
@@ -31,6 +31,7 @@ void gpioInit(void){
 		pADI_GP1->GPCON |= GP1CON_CON5_SPI0SCLK;
 	  pADI_GP1->GPCON |= GP1CON_CON6_SPI0MOSI;
 	  pADI_GP1->GPCON |= GP1CON_CON7_SPI0CS;    //Kann auch alternativ normaler GPIO Output sein
+	//Zusätzlicher Pin für INT - Pin vom Can controller
 	
 	//Multiplexen der SPI0-Pins (SD)
 		pADI_GP0->GPCON |= GP0CON_CON0_SPI1MISO;
@@ -44,15 +45,6 @@ void gpioInit(void){
 		pADI_GP1->GPOEN |= GP1OEN_OEN7_OUT;						//CS1  -> Output
 		pADI_GP0->GPOEN |= GP0OEN_OEN2_OUT;						//MOSI0 -> Output
 	  pADI_GP0->GPOEN |= GP0OEN_OEN3_OUT;						//CS0 -> Output
-	
-/*--------CAN-Transceiver--------------------------*/	
-	  pADI_GP0->GPCON |= GPOEN_OEN1_IN;         //UART Serial Input 
-	  pADI_GP0->GPCON |= GPOEN_OEN2_OUT;				//UART Serial Output
-	  pADI_GP0->GPCON |= GP0CON_CON1_UARTRXD;		//P0.1 Funktion UART RX
-		pADI_GP0->GPCON |= GP0CON_CON2_UARTTXD;   //P0.2 Funktion UART TX
-	  pADI_GP1->GPCON |= GPOEN_OEN0_OUT;				//P1.0 STBN -> Output
-	  pADI_GP1->GPCON |= GPOEN_OEN2_IN;					//P1.2 ERRN -> Input
-		pADI_GP1->GPCON |= GPOEN_OEN4_OUT;				//P1.4 EN -> Output
 }	
 
 void adc1Init(void){

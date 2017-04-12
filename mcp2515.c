@@ -26,20 +26,14 @@
 // ----------------------------------------------------------------------------
 
 
-//#include <avr/io.h>
-//#include <util/delay.h>
 
-//#if ARDUINO>=100
-//#include <Arduino.h> // Arduino 1.0
-//#else
-//#include <Wprogram.h> // Arduino 0022
-//#endif
-//#include <stdint.h>
-//#include <avr/pgmspace.h>
+#include <stdint.h>
+
 
 //#include "global.h"
 #include "mcp2515.h"
 #include "mcp2515_defs.h"
+#include <ADuCM360.H>
 
 
 //#include "defaults.h"
@@ -50,13 +44,15 @@
 uint8_t spi_putc( uint8_t data )
 {
 	// put byte in send-buffer
-	SPDR = data;
+	//SPDR = data;
+	pADI_SPI1->SPITX = data;
 	
 	// wait until byte was send
-	while( !( SPSR & (1<<SPIF) ) )
+	//while( !( SPSR & (1<<SPIF) ) )
+	while(! (pADI_SPI1->SPISTA & SPISTA_TX))
 		;
 	
-	return SPDR;
+	return pADI_SPI1->SPITX;
 }
 
 // -------------------------------------------------------------------------
