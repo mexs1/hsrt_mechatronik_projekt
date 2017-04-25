@@ -4,14 +4,6 @@ mit dem CAN-Transceiver benötigt werden
 
 */
 
-void spiWrite(){
-}
-
-void spiRead(){
-}
-
-void writeCanAdress(){
-}
-
-void writeCanData(){
+void startCommunicationCanController(){
+	
 }

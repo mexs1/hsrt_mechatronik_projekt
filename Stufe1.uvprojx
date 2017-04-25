@@ -423,6 +423,31 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>AD Libraries</GroupName>
+          <Files>
+            <File>
+              <FileName>DioCfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DioCfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>SpiLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SpiLib.c</FilePath>
+            </File>
+            <File>
+              <FileName>AdcLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AdcLib.c</FilePath>
+            </File>
+            <File>
+              <FileName>DmaLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DmaLib.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>

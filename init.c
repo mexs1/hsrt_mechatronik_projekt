@@ -30,14 +30,14 @@ void gpioInit(void){
 	  pADI_GP1->GPCON |= GP1CON_CON4_SPI0MISO;
 		pADI_GP1->GPCON |= GP1CON_CON5_SPI0SCLK;
 	  pADI_GP1->GPCON |= GP1CON_CON6_SPI0MOSI;
-	  pADI_GP1->GPCON |= GP1CON_CON7_SPI0CS;    //Kann auch alternativ normaler GPIO Output sein
+	  //pADI_GP1->GPCON |= GP1CON_CON7_SPI0CS;    //Kann auch alternativ normaler GPIO Output sein
 	//Zusätzlicher Pin für INT - Pin vom Can controller
 	
 	//Multiplexen der SPI0-Pins (SD)
 		pADI_GP0->GPCON |= GP0CON_CON0_SPI1MISO;
 	  pADI_GP0->GPCON |= GP0CON_CON1_SPI1SCLK;
 	  pADI_GP0->GPCON |= GP0CON_CON2_SPI1MOSI;
-	  pADI_GP0->GPCON |= GP0CON_CON3_SPI1CS0;   //Kann auch alternativ normaler GPIO Output sein
+	  //pADI_GP0->GPCON |= GP0CON_CON3_SPI1CS0;   //Kann auch alternativ normaler GPIO Output sein
 
 /*--------GPIO-------------------------------------*/
 	
@@ -45,6 +45,7 @@ void gpioInit(void){
 		pADI_GP1->GPOEN |= GP1OEN_OEN7_OUT;						//CS1  -> Output
 		pADI_GP0->GPOEN |= GP0OEN_OEN2_OUT;						//MOSI0 -> Output
 	  pADI_GP0->GPOEN |= GP0OEN_OEN3_OUT;						//CS0 -> Output
+		pADI_GP1->GPOEN |= GP1OEN_OEN3_OUT;						//MCP2515 INT -> Output
 }	
 
 void adc1Init(void){
