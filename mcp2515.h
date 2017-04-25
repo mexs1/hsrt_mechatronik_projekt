@@ -84,6 +84,8 @@ uint8_t mcp2515_get_message(tCAN *message);
 // ----------------------------------------------------------------------------
 uint8_t mcp2515_send_message(tCAN *message);
 
+#define MSGRXB0 0x40			//Message in RXBO
+#define MSGRXB1 0x80			//Message in RXB1
 
 #ifdef __cplusplus
 }

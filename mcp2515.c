@@ -240,11 +240,11 @@ uint8_t mcp2515_get_message(tCAN *message)
 	uint8_t t;
 	uint8_t length = spi_putc(0xff) & 0x0f;
 	
-	if (bit_is_set(status,6)) {
+	if (status & MSGRXB0) {
 		// message in buffer 0
 		addr = SPI_READ_RX;
 	}
-	else if (bit_is_set(status,7)) {
+	else if (status & MSGRXB1) {
 		// message in buffer 1
 		addr = SPI_READ_RX | 0x04;
 	}
@@ -268,7 +268,7 @@ uint8_t mcp2515_get_message(tCAN *message)
 	
 	
 	message->header.length = length;
-	message->header.rtr = (bit_is_set(status, 3)) ? 1 : 0;
+	message->header.rtr = (status & (1 << 3)) ? 1 : 0;
 	
 	// read data
 	for (t=0;t<length;t++) {
@@ -278,7 +278,7 @@ uint8_t mcp2515_get_message(tCAN *message)
 	DioSet(MCP2515_CS);
 	
 	// clear interrupt flag
-	if (bit_is_set(status, 6)) {
+	if (status & (1 << 6)) {
 		mcp2515_bit_modify(CANINTF, (1<<RX0IF), 0);
 	}
 	else {
@@ -307,13 +307,16 @@ uint8_t mcp2515_send_message(tCAN *message)
 	uint8_t address;
 	uint8_t t;
 //	SET(LED2_HIGH);
-	if (bit_is_clear(status, 2)) {
+	//if (bit_is_clear(status, 2)) {
+	if (status & ~(1 << 2)) {
 		address = 0x00;
 	}
-	else if (bit_is_clear(status, 4)) {
+	//else if (bit_is_clear(status, 4)) {
+	else if (status & ~(1 << 4)) {
 		address = 0x02;
 	} 
-	else if (bit_is_clear(status, 6)) {
+	//else if (bit_is_clear(status, 6)) {
+	else if (status & ~(1 << 6)) {
 		address = 0x04;
 	}
 	else {

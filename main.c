@@ -7,6 +7,8 @@ Datum: 19.10.2016
 #include <stdio.h>
 #include <ADuCM360.H>
 #include "main.h"
+#include "can.h"
+
 
 int main (void) {
 	
@@ -20,11 +22,13 @@ int main (void) {
 	
 	
 	while(1){
-  	temp_value = pADI_ADC0->DAT;
-		analog_value_voltage = 0.1966953277 * (double)temp_value;
-		analog_value_voltage = analog_value_voltage/1000000;
-		current = analog_value_voltage/resistance;
+//  	temp_value = pADI_ADC0->DAT;
+//		analog_value_voltage = 0.1966953277 * (double)temp_value;
+//		analog_value_voltage = analog_value_voltage/1000000;
+//		current = analog_value_voltage/resistance;
+//		
+//		stateOfCharge(analog_value_voltage);
 		
-		stateOfCharge(analog_value_voltage);
+		startCommunicationCanController();
 	}
 }

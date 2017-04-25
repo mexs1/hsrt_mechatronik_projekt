@@ -82,17 +82,17 @@
         <Book>
           <Number>0</Number>
           <Title>Layout (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_board_outline.pdf</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_board_outline.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Schematic (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_schematic.PDF</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_schematic.PDF</Path>
         </Book>
         <Book>
           <Number>2</Number>
           <Title>ADuCM360 Development Systems Getting Started Tutorial (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\UG-457.pdf</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\UG-457.pdf</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -297,18 +297,6 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\can.c</PathWithFileName>
-      <FilenameWithoutPath>can.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>7</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
       <PathWithFileName>.\mcp2515.c</PathWithFileName>
       <FilenameWithoutPath>mcp2515.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -316,7 +304,7 @@
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
-      <FileNumber>8</FileNumber>
+      <FileNumber>7</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -328,13 +316,37 @@
     </File>
     <File>
       <GroupNumber>1</GroupNumber>
-      <FileNumber>9</FileNumber>
+      <FileNumber>8</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\mcp2515_defs.h</PathWithFileName>
       <FilenameWithoutPath>mcp2515_defs.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>9</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\can.c</PathWithFileName>
+      <FilenameWithoutPath>can.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>10</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\can.h</PathWithFileName>
+      <FilenameWithoutPath>can.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -348,7 +360,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>10</FileNumber>
+      <FileNumber>11</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -360,7 +372,7 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>11</FileNumber>
+      <FileNumber>12</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -372,7 +384,7 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>12</FileNumber>
+      <FileNumber>13</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -384,7 +396,7 @@
     </File>
     <File>
       <GroupNumber>2</GroupNumber>
-      <FileNumber>13</FileNumber>
+      <FileNumber>14</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
