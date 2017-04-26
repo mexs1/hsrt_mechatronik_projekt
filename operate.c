@@ -44,3 +44,16 @@ float interpolate_segment(double x0, double y0, double x1, double y1, double x)
 void coulombCounting(){
 
 }
+
+void measureTemperature(){
+}
+
+
+/*
+TO DO:
+State of Health
+Look Up Table in EEPROM laden
+
+
+
+*/
