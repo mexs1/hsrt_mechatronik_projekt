@@ -82,17 +82,17 @@
         <Book>
           <Number>0</Number>
           <Title>Layout (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_board_outline.pdf</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_board_outline.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Schematic (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_schematic.PDF</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_schematic.PDF</Path>
         </Book>
         <Book>
           <Number>2</Number>
           <Title>ADuCM360 Development Systems Getting Started Tutorial (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\UG-457.pdf</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\UG-457.pdf</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -354,7 +354,7 @@
 
   <Group>
     <GroupName>AD Libraries</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -403,6 +403,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\DmaLib.c</PathWithFileName>
       <FilenameWithoutPath>DmaLib.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>15</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\FeeLib.c</PathWithFileName>
+      <FilenameWithoutPath>FeeLib.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

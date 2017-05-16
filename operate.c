@@ -9,7 +9,7 @@ Dieses C-File dient der tatsächlichen Operationen des System (SoC und SoH Berech
 float interpolate_segment(double x0, double y0, double x1, double y1, double x);
 
 
-int stateOfCharge(double voltage){
+int stateOfCharge(int voltage){
 	//4,2 4 3,8 3,6 3,4 3,2 3 2,8
 	const unsigned int LuT_SoC[] = {100,95,77,56,19,4,1};
 	const double voltage_ranges[] = {4.2,4,3.8,3.6,3.4,3.2,2.8};
@@ -49,8 +49,14 @@ void measureTemperature(){
 }
 
 
+
+void putLUTtoFlash(void){
+	
+}
+
 /*
 TO DO:
+Temperaturmessung über Thermoelement
 State of Health
 Look Up Table in EEPROM laden
 

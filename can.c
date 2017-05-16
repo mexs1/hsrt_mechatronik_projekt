@@ -55,5 +55,22 @@ void startCommunicationCanController(void){
 	
 	
 	
+}
+
+void sendVoltageCan(int voltage){
 	
+	tCAN message;
+	
+	message.id = 0x001;
+	message.header.rtr = 0;
+  message.header.length = 4; //formatted in DEC
+	
+	message.data[0] = voltage & 0xFF000000;
+	message.data[1] = voltage & 0xFF0000;
+	message.data[2] = voltage & 0xFF00;
+	message.data[3] = voltage & 0xFF;
+	
+	mcp2515_bit_modify(CANCTRL, (1<<REQOP2)|(1<<REQOP1)|(1<<REQOP0), 0); //Set CanCtrl-Register to normal Operation mode
+	mcp2515_send_message(&message);
+
 }
