@@ -8,6 +8,7 @@ Datum: 19.10.2016
 #include <ADuCM360.H>
 #include "main.h"
 #include "can.h"
+#include "AdcLib.h"
 
 
 int main (void) {

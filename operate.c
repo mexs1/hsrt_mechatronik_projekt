@@ -5,6 +5,8 @@ Dieses C-File dient der tatsächlichen Operationen des System (SoC und SoH Berech
 */
 
 
+#include <ADuCM360.h>
+#include "AdcLib.h"
 //Funktionsdeklaration
 float interpolate_segment(double x0, double y0, double x1, double y1, double x);
 
@@ -15,6 +17,7 @@ int stateOfCharge(int voltage){
 	const double voltage_ranges[] = {4.2,4,3.8,3.6,3.4,3.2,2.8};
 	int soc = 0;
 	int i = 0;			//Zählvariable
+	//double temperature_battery
 	
 	for(i=0;i<=6;i++){
 		
@@ -22,6 +25,7 @@ int stateOfCharge(int voltage){
 				soc = interpolate_segment(voltage_ranges[i],LuT_SoC[i],voltage_ranges[i+1],LuT_SoC[i+1],voltage);
 			}
 	}
+	//temperature_battery = measureTemperature();
 	
 	return soc;
 	
@@ -45,7 +49,15 @@ void coulombCounting(){
 
 }
 
-void measureTemperature(){
+double measureTemperature(){
+	
+	//Das Thermoelement TI LM35 liefert einen linearen Spannungswert mit 10mv/°C
+	//Eingänge Sind AIN4 (VIN) und AIN5(GND)
+	
+	double temperature = 0;
+	temperature = (double)((AdcRd(pADI_ADC1)*(3300/1<<28))/10);	//Temperatur in °C
+	
+	return temperature;
 }
 
 
@@ -56,7 +68,7 @@ void putLUTtoFlash(void){
 
 /*
 TO DO:
-Temperaturmessung über Thermoelement
+
 State of Health
 Look Up Table in EEPROM laden
 

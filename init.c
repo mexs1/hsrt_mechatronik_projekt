@@ -52,13 +52,17 @@ void adc1Init(void){
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_IDLE;    		//Idle-Mode zur Kalibrierung
 	pADI_ADC0->CON |= ADCCON_ADCEN;	      			//Aktiviere ADC0
 	pADI_ADC0->CON |= ADCCON_ADCCP_AIN0;  			//Positiver Kanal : AIN0
-	pADI_ADC0->CON |= ADCCON_ADCCN_AIN5;  			//Negativer Kanal : AIN5
+	pADI_ADC0->CON |= ADCCON_ADCCN_AIN1;  			//Negativer Kanal : AIN1
 	pADI_ADC0->MDE |= ADCMDE_ADCMD_INTOCAL; 		//Zero-Scale-Calibration
 	pADI_ADC0->MDE = ADCMDE_ADCMD_CONT;    			//Kontinuierliche Messung über
 }
 
 /*--------ADC -> Thermoelement ----------------------*/
 void adc2Init(void){
+	AdcPin(pADI_ADC1,ADCCON_ADCCN_TEMP,ADCCON_ADCCN_AIN5);	//Pin Konfiguriert; Eingang auf ADC-Temp. Eingang und GND auf AIN5
+	AdcGo(pADI_ADC1,ADCMDE_ADCMD_CONT);					//Starte kontinuierliche Messung
+	
+	
 }
 
 
