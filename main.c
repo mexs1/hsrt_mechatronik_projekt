@@ -20,7 +20,10 @@ int main (void) {
 	int current = 0;									//uA
 	
 	SystemCoreClockUpdate();
-	
+	adc1Init();
+	adc2Init();
+	gpioInit();
+	spiInit();
 	
 	while(1){
   	temp_value = pADI_ADC0->DAT;

@@ -1,4 +1,5 @@
 #include <ADuCM360.H>
+#include "AdcLib.h"
 
 void spiInit (void){
 	
