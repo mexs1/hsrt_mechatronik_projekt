@@ -39,17 +39,17 @@ void startCommunicationCanController(void){
 	{
 		if(mcp2515_get_message(&message))
 		{
-			 printf("ID: ");
-			 printf("%x \n", message.id);
-			 printf(", ");
-			 printf("Data: ");
-			 printf("%x \n",message.header.length);
-			 for(i=0;i<message.header.length;i++) 
-				{	
-					printf("%x \n",message.data[i]);
-					printf(" ");
-				}
-			  printf("");
+//			 printf("ID: ");
+//			 printf("%x \n", message.id);
+//			 printf(", ");
+//			 printf("Data: ");
+//			 printf("%x \n",message.header.length);
+//			 for(i=0;i<message.header.length;i++) 
+//				{	
+//					printf("%x \n",message.data[i]);
+//					printf(" ");
+//				}
+//			  printf("");
 		}
 	}
 	

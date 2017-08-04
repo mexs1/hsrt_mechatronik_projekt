@@ -51,7 +51,8 @@ uint8_t spi_putc( uint8_t data )
 	
 	// wait until byte was send
 	//while( !( SPSR & (1<<SPIF) ) )
-	while(! (pADI_SPI1->SPISTA & SPISTA_TX))
+	//while(! (pADI_SPI1->SPISTA & SPISTA_TX))
+	while((pADI_SPI1->SPISTA & SPISTA_TX))
 		;
 	
 	return pADI_SPI1->SPITX;
