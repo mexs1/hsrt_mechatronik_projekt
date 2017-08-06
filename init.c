@@ -1,5 +1,6 @@
 #include <ADuCM360.H>
 #include "AdcLib.h"
+#include "DioLib.h"
 
 void spiInit (void){
 	
@@ -12,10 +13,15 @@ void spiInit (void){
 		pADI_SPI0->SPICON |= SPICON_ENABLE_EN;
 	
 	//Can-Controller
-		pADI_CLKCTL->CLKCON1 |= CLKCON1_SPI1CD_DIV2;			//Clock is set to UCLK/2 = 8MHz. Can-Controller kann bis zu 10 MHz unterstützen
+		DioPulPin(pADI_GP1,4,0);													//Alle Pull-Up-Widerstände abschalten
+		DioPulPin(pADI_GP1,5,0);
+		DioPulPin(pADI_GP1,6,0);
+	  DioPulPin(pADI_GP1,7,0);
+	
+		pADI_CLKCTL->CLKCON1 |= CLKCON1_SPI1CD_DIV2;			//Clock is set to UCLK/2 = 8MHz. Can-Controller kann bis zu 10 MHz unterstützen uC bis 8MHz
 	  pADI_SPI1->SPIDIV |= SPIDIV_DIV_MSK;
 		pADI_SPI1->SPICON |= SPICON_CPOL_LOW;							//Clock Polarity Low
-	  pADI_SPI1->SPICON |= SPICON_CPHA_SAMPLETRAILING;	//Clock Phase -> falling edge of SCK
+	  pADI_SPI1->SPICON |= SPICON_CPHA_SAMPLELEADING;		//Clock Phase -> rising edge of SCK
 	  pADI_SPI1->SPICON |= SPICON_MASEN_EN;							//Enable Master Operation
 	  pADI_SPI1->SPICON |= SPICON_LSB_DIS;							//MSB first
 	
@@ -44,6 +50,8 @@ void gpioInit(void){
 	
 		pADI_GP1->GPOEN |= GP1OEN_OEN6_OUT;						//MOSI1 -> Output
 		pADI_GP1->GPOEN |= GP1OEN_OEN7_OUT;						//CS1  -> Output
+		DioOenPin(pADI_GP1,4,0);											//MISO1 -> Input
+		DioOenPin(pADI_GP1,5,1);											//SCLK1 -> Output
 		pADI_GP0->GPOEN |= GP0OEN_OEN2_OUT;						//MOSI0 -> Output
 	  pADI_GP0->GPOEN |= GP0OEN_OEN3_OUT;						//CS0 -> Output
 		pADI_GP1->GPOEN |= GP1OEN_OEN3_OUT;						//MCP2515 INT -> Output

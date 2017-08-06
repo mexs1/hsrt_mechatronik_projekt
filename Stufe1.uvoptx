@@ -82,17 +82,17 @@
         <Book>
           <Number>0</Number>
           <Title>Layout (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_board_outline.pdf</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_board_outline.pdf</Path>
         </Book>
         <Book>
           <Number>1</Number>
           <Title>Schematic (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_schematic.PDF</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\ADuCM360_361_schematic.PDF</Path>
         </Book>
         <Book>
           <Number>2</Number>
           <Title>ADuCM360 Development Systems Getting Started Tutorial (EVAL-ADuCM360MKZ)</Title>
-          <Path>C:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\UG-457.pdf</Path>
+          <Path>D:\Keil_v5\ARM\PACK\AnalogDevices\ADuCM36x_DFP\1.0.1\Documents\UG-457.pdf</Path>
         </Book>
       </Books>
       <DebugOpt>
@@ -131,10 +131,6 @@
         <pMon>Segger\JL2CM3.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
-        <SetRegEntry>
-          <Number>0</Number>
-          <Key>DLGUARM</Key>
-        </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
