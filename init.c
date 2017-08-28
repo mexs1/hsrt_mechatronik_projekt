@@ -6,6 +6,11 @@ void spiInit (void){
 	
 	//SD   TO DO..............
 
+		DioPulPin(pADI_GP1,4,0);													//Alle Pull-Up-Widerstände abschalten
+		DioPulPin(pADI_GP1,5,0);
+		DioPulPin(pADI_GP1,6,0);
+	  DioPulPin(pADI_GP1,7,0);
+	
 		pADI_SPI0->SPIDIV |= SPIDIV_DIV_MSK;	
 
 		pADI_SPI0->SPICON |= SPICON_MASEN_EN;
@@ -13,10 +18,10 @@ void spiInit (void){
 		pADI_SPI0->SPICON |= SPICON_ENABLE_EN;
 	
 	//Can-Controller
-		DioPulPin(pADI_GP1,4,0);													//Alle Pull-Up-Widerstände abschalten
-		DioPulPin(pADI_GP1,5,0);
-		DioPulPin(pADI_GP1,6,0);
-	  DioPulPin(pADI_GP1,7,0);
+		DioPulPin(pADI_GP0,0,0);													//Alle Pull-Up-Widerstände abschalten
+		DioPulPin(pADI_GP0,1,0);
+		DioPulPin(pADI_GP0,2,0);
+	  DioPulPin(pADI_GP0,3,0);
 	
 		pADI_CLKCTL->CLKCON1 |= CLKCON1_SPI1CD_DIV2;			//Clock is set to UCLK/2 = 8MHz. Can-Controller kann bis zu 10 MHz unterstützen uC bis 8MHz
 	  pADI_SPI1->SPIDIV |= SPIDIV_DIV_MSK;
@@ -33,27 +38,39 @@ void gpioInit(void){
 	
 /*--------SPI-------------------------------------*/
 	
-	//Multiplexen der SPI1-Pins (Can-Controller)
+	//Multiplexen der SPI0-Pins (SD)
 	  pADI_GP1->GPCON |= GP1CON_CON4_SPI0MISO;
 		pADI_GP1->GPCON |= GP1CON_CON5_SPI0SCLK;
 	  pADI_GP1->GPCON |= GP1CON_CON6_SPI0MOSI;
 	  //pADI_GP1->GPCON |= GP1CON_CON7_SPI0CS;    //Kann auch alternativ normaler GPIO Output sein
 	//Zusätzlicher Pin für INT - Pin vom Can controller
 	
-	//Multiplexen der SPI0-Pins (SD)
-		pADI_GP0->GPCON |= GP0CON_CON0_SPI1MISO;
-	  pADI_GP0->GPCON |= GP0CON_CON1_SPI1SCLK;
-	  pADI_GP0->GPCON |= GP0CON_CON2_SPI1MOSI;
+	
+	//Multiplexen der SPI1-Pins (Can-Controller)
+	DioCfgPin(pADI_GP0,0,1);											//SPI1MISO
+	DioCfgPin(pADI_GP0,1,1);											//SP1_SCLK
+	DioCfgPin(pADI_GP0,2,1);											//SPI1_MOSI
+	DioCfgPin(pADI_GP0,3,0);
+	DioCfgPin(pADI_GP0,4,0);
+	DioCfgPin(pADI_GP0,5,0);
+	DioCfgPin(pADI_GP0,6,0);
+	DioCfgPin(pADI_GP0,7,0);
+	
+//		pADI_GP0->GPCON = GP0CON_CON0_SPI1MISO | GP0CON_CON1_SPI1SCLK | GP0CON_CON2_SPI1MOSI;
+//	  pADI_GP0->GPCON = GP0CON_CON1_SPI1SCLK;
+//	  pADI_GP0->GPCON = GP0CON_CON2_SPI1MOSI;
 	  //pADI_GP0->GPCON |= GP0CON_CON3_SPI1CS0;   //Kann auch alternativ normaler GPIO Output sein
 
 /*--------GPIO-------------------------------------*/
 	
-		pADI_GP1->GPOEN |= GP1OEN_OEN6_OUT;						//MOSI1 -> Output
-		pADI_GP1->GPOEN |= GP1OEN_OEN7_OUT;						//CS1  -> Output
-		DioOenPin(pADI_GP1,4,0);											//MISO1 -> Input
-		DioOenPin(pADI_GP1,5,1);											//SCLK1 -> Output
-		pADI_GP0->GPOEN |= GP0OEN_OEN2_OUT;						//MOSI0 -> Output
-	  pADI_GP0->GPOEN |= GP0OEN_OEN3_OUT;						//CS0 -> Output
+		pADI_GP1->GPOEN |= GP1OEN_OEN6_OUT;						//MOSI0 -> Output
+		pADI_GP1->GPOEN |= GP1OEN_OEN7_OUT;						//CS0  -> Output
+		DioOenPin(pADI_GP1,4,0);											//MISO0 -> Input
+		DioOenPin(pADI_GP1,5,1);											//SCLK0 -> Output
+		
+		pADI_GP0->GPOEN |= GP0OEN_OEN2_OUT;						//MOSI1 -> Output
+	  pADI_GP0->GPOEN |= GP0OEN_OEN3_OUT;						//CS1 -> Output
+		DioOenPin(pADI_GP0,1,1);											//SCLK1 -> Output
 		pADI_GP1->GPOEN |= GP1OEN_OEN3_OUT;						//MCP2515 INT -> Output
 }	
 
